@@ -1,0 +1,63 @@
+/* Palette from the slides. The scene script drives --bg as the card falls. */
+:root { --red:#d91e25; --grey:#dedede; --yellow:#fde100; --ink:#0d0c0e; --white:#f9fbfc; --bg:var(--red); --gutter:clamp(20px,3.4vw,56px); }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { background:var(--bg); }
+body { font-family:'Red Hat Text',system-ui,sans-serif; font-weight:500; color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased; }
+.disp { font-family:'Red Hat Display',system-ui,sans-serif; font-weight:900; letter-spacing:-.04em; line-height:.95; }
+a { color:inherit; font-weight:700; }
+a:focus-visible { outline:3px solid currentColor; outline-offset:4px; }
+
+/* Without WebGL or JS: a plain page of sections and the untouched art. */
+.panel { min-height:100svh; padding:var(--gutter); display:flex; flex-direction:column; gap:24px; }
+.panel.cover, .panel.concept { color:var(--white); background:var(--red); }
+.panel.details { background:var(--grey); }
+.panel.final { background:var(--yellow); }
+.still { width:min(100%,420px); height:auto; }
+#stage, #track, #leaders, #light { display:none; }
+
+h1, .final h2 { font-size:clamp(56px,10.5vw,190px); }
+h1 span { font-size:.72em; }
+.concept h2 { font-size:clamp(28px,8.2vw,104px); }
+.details h2 { font-size:clamp(44px,7vw,120px); }
+.pair { display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2vw,32px); font-size:clamp(15px,1.25vw,20px); line-height:1.5; }
+.tag, .note, .side, .hint, footer { font-size:clamp(15px,1.25vw,20px); }
+.hint, .tag { font-weight:700; }
+.labels dt { font-family:'Red Hat Display',system-ui,sans-serif; font-weight:900; letter-spacing:-.03em; font-size:clamp(19px,2vw,32px); line-height:1.05; }
+.labels dd { font-size:clamp(14px,1.1vw,18px); line-height:1.45; margin-top:4px; }
+.labels { display:grid; gap:18px; }
+footer { display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; font-weight:700; }
+
+/* With the scene: text panels sit fixed under the canvas, so shadows fall across the type. */
+.gl .still { display:none; }
+.gl #stage, .gl #leaders, .gl #light { display:block; position:fixed; inset:0; width:100%; height:100%; pointer-events:none; }
+.gl #light { background:radial-gradient(120% 90% at 30% 35%, rgb(255 255 255 / .09), transparent 55%), radial-gradient(130% 110% at 50% 45%, transparent 55%, rgb(0 0 0 / .2)); }
+.gl #stage { z-index:2; }
+.gl #leaders { z-index:3; }
+.gl #track { display:block; height:900svh; }
+.gl main { position:fixed; inset:0; z-index:1; }
+.gl .panel { position:absolute; inset:0; min-height:0; background:none; visibility:hidden; }
+.gl .panel.on { visibility:visible; }
+.gl .panel > *, .gl .labels > div { will-change:transform, opacity; }
+.gl footer { position:relative; z-index:4; }
+.gl .final a { pointer-events:auto; }
+
+/* Portrait is the slides' own composition: heading on top, objects mid, text below. */
+.gl .panel { justify-content:space-between; }
+.gl .concept { justify-content:flex-start; }
+.gl .concept .pair { margin-top:auto; }
+.gl .tag { position:absolute; width:12em; margin-left:-6em; text-align:center; }
+.gl .details .labels { position:absolute; right:var(--gutter); top:17%; bottom:5%; width:41%; align-content:space-between; }
+
+/* Landscape: the objects take the right, text takes the left. */
+@media (min-aspect-ratio: 1/1) {
+  .gl .panel { width:44%; justify-content:center; gap:clamp(20px,3vh,40px); padding-left:clamp(32px,5vw,96px); padding-right:0; }
+  .gl .concept { justify-content:center; }
+  .gl .concept .pair { margin-top:0; }
+  .gl .details { width:100%; justify-content:flex-start; padding-top:clamp(32px,7vh,80px); padding-right:clamp(32px,5vw,96px); }
+  .gl .details .labels { width:24%; top:9%; bottom:9%; right:clamp(32px,5vw,96px); }
+  .gl .details h2 { max-width:30vw; }
+  h1, .final h2 { font-size:clamp(56px,7.4vw,150px); }
+  .concept h2 { font-size:clamp(34px,3.6vw,76px); }
+}
+
+@media (prefers-reduced-motion: reduce) { .gl .panel > *, .gl .labels > div { will-change:auto; } }

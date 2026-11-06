@@ -1,0 +1,26 @@
+# Dependencies and build output
+node_modules/
+dist/
+
+# Secrets and signing: never commit
+.env
+.env.*
+!.env.template
+*.pem
+*.key
+*.jks
+*.keystore
+*.p12
+
+# AI tooling and session notes: local to this machine
+.claude/
+.codex/
+.cursor/
+handoff.md
+graphify-out/
+
+# Browser-automation output
+.playwright/
+.playwright-cli/
+test-results/
+playwright-report/

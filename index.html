@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coscard: Tayama Edition</title>
+<meta name="description" content="A cosplay business card built like a cigarette pack, for a cosplayer portraying Tayama. Personal cosplay merchandise design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+<div id="light" aria-hidden="true"></div>
+
+<main>
+  <section class="panel cover" data-at="0">
+    <h1 class="disp" data-depth="0.5">Coscard &mdash;<br><span>Tayama Edition</span></h1>
+    <img class="still" src="/art/front.png" alt="Coscard front: cosplayer in a black leather jacket at a bar table with a yellow FLIP ME! prompt" loading="lazy">
+    <p class="hint" data-depth="1.2">Flip me.</p>
+  </section>
+
+  <section class="panel concept" data-at="1">
+    <h2 class="disp" data-depth="0.6">From cigarette pack<br>to coscard</h2>
+    <img class="still" src="/art/pack.jpg" alt="Back of a real Marlboro Black pack" loading="lazy">
+    <img class="still" src="/art/back.png" alt="Coscard back: PERINGATAN warning band, cosplayer photo, custom tax strip, red panel and QR code" loading="lazy">
+    <span class="tag" data-depth="0">(Real pack)</span>
+    <span class="tag" data-depth="0">(Coscard)</span>
+    <div class="pair" data-depth="1.3">
+      <p>For a cosplayer portraying Tayama, from <i>Smoking Behind the Supermarket with You</i>.</p>
+      <p>Cigarette packaging ties directly to the character.</p>
+      <p>Marlboro Black's packaging, recreated and modified.</p>
+      <p>Reworked around the cosplayer's identity.</p>
+    </div>
+    <p class="note" data-depth="1.3">(Personal creative project. Not affiliated with Marlboro.)</p>
+  </section>
+
+  <section class="panel details" data-at="2">
+    <h2 class="disp" data-depth="0.6">Design details</h2>
+    <p class="side" data-depth="0.6">(Back)</p>
+    <dl class="labels">
+      <div data-layer="0"><dt>Warning copy</dt><dd>Pack-style, rewritten for the cosplayer.</dd></div>
+      <div data-layer="1"><dt>Tax strip</dt><dd>Custom Bea Cukai-style strip, with its own price and mascot.</dd></div>
+      <div data-layer="2"><dt>Photo</dt><dd>The cosplayer, where the pack has its health image.</dd></div>
+      <div data-layer="3"><dt>QR code</dt><dd>To Linktree, mascot in the center.</dd></div>
+      <div data-layer="4"><dt>Red panel</dt><dd>Bold caps in white and yellow on red.</dd></div>
+    </dl>
+  </section>
+
+  <section class="panel final" data-at="3">
+    <h2 class="disp" data-depth="0.5">Coscard</h2>
+    <footer data-depth="1.2">
+      <p>Personal cosplay merchandise design.</p>
+      <a href="https://qrkit.to/0XQ8P" rel="noopener">Open the Linktree</a>
+    </footer>
+  </section>
+</main>
+
+<svg id="leaders" aria-hidden="true"></svg>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="track" aria-hidden="true"></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

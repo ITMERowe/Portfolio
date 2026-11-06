@@ -1,0 +1,16 @@
+{
+  "name": "coscard-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173 --strictPort",
+    "build": "vite build --base=./",
+    "preview": "vite preview --port 5173 --strictPort"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.6"
+  }
+}
